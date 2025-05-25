@@ -26,7 +26,7 @@ const CustomInput = ({ control, name, type, label, placeholder } : CustomInput) 
             control={control}
             name={name}
             render={({ field }) => (
-                <div className="form-item">
+                <div className="form-item flex-1">
                     <FormLabel className="form-label">{label}</FormLabel>
                     <div className="flex w-full flex-col">
                         <FormControl>
