@@ -15,6 +15,7 @@ import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { getLoggedInUser, signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -34,9 +35,23 @@ const AuthForm = ({ type }: { type: string }) => {
 
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
+        setIsLoading(true);
         try {
             if (type === 'sign-up') {
-                const newUser = await signUp(values);
+                //because all fields are required in dwolla
+                const userData = {
+                    firstName: values.firstName!,
+                    lastName: values.lastName!,
+                    address1: values.address1!,
+                    city: values.city!,
+                    state: values.state!,
+                    postalCode: values.postalCode!,
+                    dateOfBirth: values.dateOfBirth!,
+                    ssn: values.ssn!,
+                    email: values.email,
+                    password: values.password
+                  }
+                const newUser = await signUp(userData);
                 setUser(newUser);
             }
 
@@ -86,7 +101,7 @@ const AuthForm = ({ type }: { type: string }) => {
             </header>
             {user ? (
                 <div className="flex flex-col gap-4">
-                    {/*Plaid Link*/}
+                    <PlaidLink user={user} variant="primary"/>
                 </div>
             ) :
                 <>
