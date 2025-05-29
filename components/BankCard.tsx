@@ -1,7 +1,8 @@
-import { formatAmount } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import { formatAmount } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import Copy from './Copy';
 
 const BankCard = ({ account, userName, showBalance = true } : CreditCardProps) => {
   return (
@@ -49,9 +50,10 @@ const BankCard = ({ account, userName, showBalance = true } : CreditCardProps) =
                     alt="lines"
                     className='absolute top-0 left-0'
                 />
-                {/* COPY */}
+                
             </div>
         </Link>
+        {showBalance && <Copy title={account?.id} />}
     </div>
   )
 }
