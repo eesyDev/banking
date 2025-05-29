@@ -68,7 +68,7 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
   try {
     // get bank from db
     const bank = await getBank({ documentId: appwriteItemId });
-
+console.log('bank is', bank)
     // get account info from plaid
     const accountsResponse = await plaidClient.accountsGet({
       access_token: bank.accessToken,
@@ -116,6 +116,9 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
       appwriteItemId: bank.$id,
     };
 
+    console.log('transactions is', transactions)
+    console.log('account is', account)
+
     // sort transactions by date such that the most recent transaction is first
       const allTransactions = [...transactions, ...transferTransactions].sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -144,7 +147,7 @@ export const getInstitution = async ({
 
     return parseStringify(intitution);
   } catch (error) {
-    console.error("An error occurred while getting the accounts:", error);
+    console.error("An error occurred while getting the institution:", error);
   }
 };
 
@@ -154,6 +157,8 @@ export const getTransactions = async ({
 }: getTransactionsProps) => {
   let hasMore = true;
   let transactions: any = [];
+  console.log('access token', accessToken)
+
 
   try {
     // Iterate through each page of new transaction updates for item
@@ -180,8 +185,11 @@ export const getTransactions = async ({
       hasMore = data.has_more;
     }
 
+    console.log(transactions)
+
     return parseStringify(transactions);
   } catch (error) {
-    console.error("An error occurred while getting the accounts:", error);
+    console.error("An error occurred while getting the transactions:", error);
+    return []
   }
 };

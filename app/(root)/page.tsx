@@ -12,6 +12,8 @@ const Home = async ({searchParams: {id, page}} : SearchParamProps) => {
     userId: loggedIn.$id
   });
 
+  console.log(loggedIn)
+  console.log(accounts)
 
   if (!accounts) return;
 
