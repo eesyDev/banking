@@ -128,7 +128,7 @@ export const createLinkToken = async (user: User) => {
 				client_user_id: user.$id
 			},
 			client_name: `${user.firstName} ${user.lastName}`,
-			products: ['auth'] as Products[],
+			products: ['auth', 'transactions'] as Products[],
 			language: 'en',
 			country_codes: ['US'] as CountryCode[]
 		}
@@ -146,7 +146,7 @@ export const createBankAccount = async ({
 	accountId,
 	accessToken,
 	fundingSourceUrl,
-	sharableId,
+	shareableId,
 }: createBankAccountProps) => {
 	try {
 		//appwrite client
@@ -162,7 +162,7 @@ export const createBankAccount = async ({
 				accountId,
 				accessToken,
 				fundingSourceUrl,
-				sharableId,
+				shareableId,
 			}
 		)
 
@@ -214,7 +214,7 @@ export const exchangePublicToken = async ({ publicToken, user }: exchangePublicT
 			accountId: accountData.account_id,
 			accessToken,
 			fundingSourceUrl,
-			sharableId: encryptId(accountData.account_id),
+			shareableId: encryptId(accountData.account_id),
 		});
 
 		// Revalidate the path to reflect the changes
