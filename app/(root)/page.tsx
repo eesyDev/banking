@@ -4,7 +4,6 @@ import { getLoggedInUser } from '@/lib/actions/user.actions';
 import { getAccounts, getAccount } from '@/lib/actions/bank.actions';
 import RecentTransactions from '@/components/RecentTransactions/RecentTransactions';
 import HeaderBox from '@/components/HeaderBox/HeaderBox';
-import TotalBalanceBoxSkeleton from '@/components/TotalBalanceBox/TotalBalanceBoxSkeleton';
 
 
 const Home = async ({searchParams} : SearchParamProps) => {
