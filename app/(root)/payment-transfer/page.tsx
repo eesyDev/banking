@@ -1,4 +1,4 @@
-import HeaderBox from '@/components/HeaderBox'
+import HeaderBox from '@/components/HeaderBox/HeaderBox'
 import PaymentTransferForm from '@/components/PaymentTransferForm'
 import { getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';

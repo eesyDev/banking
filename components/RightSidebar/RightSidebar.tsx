@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import BankCard from './BankCard'
+import BankCard from '../BankCard/BankCard'
+import BankCardSkeleton from '../BankCard/BankCardSkeleton'
 
 const RightSidebar = ({ user, transactions, banks } : RightSidebarProps) => {
   return (
@@ -10,7 +11,7 @@ const RightSidebar = ({ user, transactions, banks } : RightSidebarProps) => {
             <div className="profile-banner" />
             <div className="profile">
                 <div className="profile-img">
-                    <span className='text-5xl font-bold text-blue-500'>{user?.firstName[0]}</span>
+                    <span className='text-5xl font-bold text-blue-500'>{user?.firstName[0]}{user?.lastName[0]}</span>
                 </div>
                 <div className="profile-details">
                     <h1 className='profile-name'>
