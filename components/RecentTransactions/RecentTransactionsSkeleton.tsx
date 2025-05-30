@@ -21,14 +21,6 @@ const RecentTransactionsSkeleton = () => {
           >
             <BankInfoSkeleton/>
             <TransactionsTableSceleton/>
-            {/* <BankInfo 
-              account={account}
-              appwriteItemId={appwriteItemId}
-              type="full"
-            />
-
-            <TransactionsTable transactions={currentTransactions} /> */}
-            
           </div>
     </section>
   )
