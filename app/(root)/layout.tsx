@@ -1,8 +1,11 @@
 import MobileNav from "@/components/MobileNav";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import SidebarSkeleton from "@/components/Sidebar/SidebarSkeleton";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 
 export default async function RootLayout({
@@ -17,9 +20,11 @@ export default async function RootLayout({
   }
   return (
     <main className="flex h-screen w-full font-inter">
+      <Suspense fallback={<SidebarSkeleton/>}>
         <Sidebar 
-          user={loggedIn}
-        />
+            user={loggedIn}
+          />
+      </Suspense>
         <div className="flex size-full flex-col">
           <div className="root-layout">
             <Image

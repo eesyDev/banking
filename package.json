@@ -30,6 +30,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.4",
+    "react-loading-skeleton": "^3.5.0",
     "react-plaid-link": "^4.0.1",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
