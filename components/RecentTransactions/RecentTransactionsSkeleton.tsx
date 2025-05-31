@@ -1,6 +1,6 @@
 import Skeleton from "react-loading-skeleton"
 import BankInfoSkeleton from "../BankInfo/BankInfoSkeleton"
-import TransactionsTableSceleton from "../TransactionsTable/TransactionsTableSceleton"
+import TransactionsTableSkeleton from "../TransactionsTable/TransactionsTableSkeleton"
 
 const RecentTransactionsSkeleton = () => {
   return (
@@ -20,7 +20,7 @@ const RecentTransactionsSkeleton = () => {
             className="space-y-4"
           >
             <BankInfoSkeleton/>
-            <TransactionsTableSceleton/>
+            <TransactionsTableSkeleton/>
           </div>
     </section>
   )
