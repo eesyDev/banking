@@ -68,7 +68,6 @@ export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
   try {
     // get bank from db
     const bank = await getBank({ documentId: appwriteItemId });
-console.log('bank is', bank)
     // get account info from plaid
     const accountsResponse = await plaidClient.accountsGet({
       access_token: bank.accessToken,
@@ -79,7 +78,6 @@ console.log('bank is', bank)
     const transferTransactionsData = await getTransactionsByBankId({
       bankId: bank.$id,
     });
-    console.log(transferTransactionsData)
     const transferTransactions = transferTransactionsData.documents.map(
       (transferData: Transaction) => ({
         id: transferData.$id,
@@ -115,9 +113,6 @@ console.log('bank is', bank)
       subtype: accountData.subtype! as string,
       appwriteItemId: bank.$id,
     };
-
-    console.log('transactions is', transactions)
-    console.log('account is', account)
 
     // sort transactions by date such that the most recent transaction is first
       const allTransactions = [...transactions, ...transferTransactions].sort(
@@ -157,7 +152,6 @@ export const getTransactions = async ({
 }: getTransactionsProps) => {
   let hasMore = true;
   let transactions: any = [];
-  console.log('access token', accessToken)
 
 
   try {
@@ -184,8 +178,6 @@ export const getTransactions = async ({
 
       hasMore = data.has_more;
     }
-
-    console.log(transactions)
 
     return parseStringify(transactions);
   } catch (error) {

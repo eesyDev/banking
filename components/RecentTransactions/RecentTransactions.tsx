@@ -20,7 +20,6 @@ const RecentTransactions = ({
   const currentTransactions = transactions.slice(
     indexOfFirstTransaction, indexOfLastTransaction
   )
-console.log(transactions)
   return (
     <section className="recent-transactions">
       <header className="flex items-center justify-between">
