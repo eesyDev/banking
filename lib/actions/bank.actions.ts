@@ -181,7 +181,7 @@ export const getTransactions = async ({
 
     return parseStringify(transactions);
   } catch (error) {
-    console.error("An error occurred while getting the transactions:", error);
+    console.warn("An error occurred while getting the transactions:", error);
     return []
   }
 };

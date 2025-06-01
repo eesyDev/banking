@@ -1,8 +1,12 @@
-import Link from 'next/link'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+'use client';
+import Link from 'next/link';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BankTabItem from '../BankTabItem';
 import BankInfo from '../BankInfo/BankInfo';
 import TransactionsTable from '../TransactionsTable/TransactionsTable';
+import { useState, Suspense, useEffect } from 'react'
+import TransactionsTableSkeleton from '../TransactionsTable/TransactionsTableSkeleton';
+import { usePathname, useSearchParams } from 'next/navigation';
 // import { Pagination } from './Pagination'
 
 const RecentTransactions = ({
@@ -20,6 +24,17 @@ const RecentTransactions = ({
   const currentTransactions = transactions.slice(
     indexOfFirstTransaction, indexOfLastTransaction
   )
+  const [isLoading, setIsLoading] = useState(false);
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  // Сбрасываем загрузку при изменении URL
+  useEffect(() => {
+    setIsLoading(false)
+  }, [pathname, searchParams])
+
+  const handleTabChange = (newId: string) => {
+    setIsLoading(true) // Включаем загрузку сразу при клике
+  }
   return (
     <section className="recent-transactions">
       <header className="flex items-center justify-between">
@@ -32,7 +47,7 @@ const RecentTransactions = ({
         </Link>
       </header>
 
-      <Tabs defaultValue={appwriteItemId} className="w-full">
+      <Tabs defaultValue={appwriteItemId} className="w-full" onValueChange={handleTabChange}>
       <TabsList className="recent-transactions-tablist">
           {accounts.map((account: Account) => (
             <TabsTrigger key={account.id} value={account.appwriteItemId}>
@@ -56,9 +71,15 @@ const RecentTransactions = ({
               appwriteItemId={appwriteItemId}
               type="full"
             />
-
-            <TransactionsTable transactions={currentTransactions} />
-            
+            {isLoading ? (
+              <TransactionsTableSkeleton />
+            ) : (
+              currentTransactions.length > 0 ? (
+                <TransactionsTable transactions={currentTransactions} />
+              ) : (
+                <p className='mt-4'>No transactions found</p>
+              )
+            )}
 
             {totalPages > 1 && (
               <div className="my-4 w-full">
