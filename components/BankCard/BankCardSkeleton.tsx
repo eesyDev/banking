@@ -12,10 +12,12 @@ const BankCardSkeleton = ({ showBalance } : {showBalance: boolean}) => {
                     <Skeleton
                         width={180}
                         height={10}
+                        baseColor="#5490e3" highlightColor="#90b6eb"
                     />
                      <Skeleton
                         width={100}
                         height={15}
+                        baseColor="#5490e3" highlightColor="#90b6eb"
                     />
                 </div>
                 <article className="flex flex-col gap-2">
@@ -24,17 +26,20 @@ const BankCardSkeleton = ({ showBalance } : {showBalance: boolean}) => {
                             width={150}
                             height={15}
                             containerClassName='flex-1'
+                            baseColor="#5490e3" highlightColor="#90b6eb"
                         />
                         <Skeleton
                             width={30}
                             height={15}
                             containerClassName='flex-0'
+                            baseColor="#5490e3" highlightColor="#90b6eb"
                         />
                     </div>
                     <Skeleton
                             width={180}
                             height={15}
                             containerClassName='flex-1'
+                            baseColor="#5490e3" highlightColor="#90b6eb"
                     />
                     
                 </article>
@@ -44,11 +49,13 @@ const BankCardSkeleton = ({ showBalance } : {showBalance: boolean}) => {
                     width={20}
                     height={24}
                     containerClassName='flex-1'
+                    baseColor="#5490e3" highlightColor="#90b6eb"
                 />
                 <Skeleton
                     width={45}
                     height={32}
                     containerClassName='flex-1 ml-5'
+                    baseColor="#5490e3" highlightColor="#90b6eb"
                 />
                 
             </div>

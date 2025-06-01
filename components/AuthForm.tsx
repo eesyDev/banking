@@ -61,7 +61,6 @@ const AuthForm = ({ type }: { type: string }) => {
                     password: values.password
                 });
                 if (response) {
-                    console.log('logged', response)
                     setTimeout(() => router.push('/'), 100);
                 } 
             }
