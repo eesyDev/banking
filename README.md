@@ -71,32 +71,34 @@ A modern banking web application built with Next.js, featuring Plaid and Dwolla 
 - cp .env.example .env.local
 - Fill in your `.env.local`:
 
-Appwrite
-NEXT_PUBLIC_APPWRITE_ENDPOINT=
+## Appwrite
+```NEXT_PUBLIC_APPWRITE_ENDPOINT=
 NEXT_PUBLIC_APPWRITE_PROJECT=
 APPWRITE_DATABASE_ID=
 APPWRITE_USER_COLLECTION_ID=
 APPWRITE_BANK_COLLECTION_ID=
 APPWRITE_TRANSACTION_COLLECTION_ID=
-APPWRITE_SECRET=
+APPWRITE_SECRET= 
+```
 
-Plaid
-PLAID_CLIENT_ID=
+## Plaid
+```PLAID_CLIENT_ID=
 PLAID_SECRET=
 PLAID_ENV=sandbox
+```
 
-Dwolla
-DWOLLA_KEY=
+## Dwolla
+```DWOLLA_KEY=
 DWOLLA_SECRET=
 DWOLLA_BASE_URL=https://api-sandbox.dwolla.com
 DWOLLA_ENV=sandbox
-
+```
 
 4. **Run the development server**
 
 ```npm run dev```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+- Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🚀 Live Demo
 
@@ -104,9 +106,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🌐 Deployed on Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/banking)
+[![Deploy with Vercel](https://vercel.com/button)](https://banking-5w5ak8q4o-ranos-projects.vercel.app/sign-in)
 
-This project is deployed and hosted on [Vercel](https://vercel.com/).
+This project is deployed and hosted on [Vercel](https://banking-5w5ak8q4o-ranos-projects.vercel.app/sign-in).
 
 
 ## 👤 Test User
