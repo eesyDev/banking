@@ -26,6 +26,7 @@ const Home = async ({searchParams} : SearchParamProps) => {
     getAccount({ appwriteItemId })
   ]);
 
+  console.log(loggedIn)
   return (
     <section className='home'>
       <div className="home-content">
