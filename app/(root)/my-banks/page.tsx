@@ -2,18 +2,18 @@ import BankCard from '@/components/BankCard/BankCard';
 import HeaderBox from '@/components/HeaderBox/HeaderBox'
 import { getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 const MyBanks = async () => {
   const loggedIn = await getLoggedInUser();
-  const router = useRouter();
+  // const router = useRouter();
   const accounts = await getAccounts({ 
     userId: loggedIn.$id 
   })
 
-  if (!loggedIn) {
-    router.push('/');
-  }
+  // if (!loggedIn) {
+  //   router.push('/');
+  // }
 
   return (
     <section className='flex'>
