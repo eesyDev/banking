@@ -5,6 +5,7 @@ import React from 'react';
 import Copy from '../Copy';
 
 const BankCard = ({ account, userName, showBalance = true } : CreditCardProps) => {
+    console.log(account)
   return (
     <div className='flex flex-col'>
         <Link 
@@ -53,7 +54,7 @@ const BankCard = ({ account, userName, showBalance = true } : CreditCardProps) =
                 
             </div>
         </Link>
-        {showBalance && <Copy title={account?.id} />}
+        {showBalance && <Copy title={account?.shareableId } />}
     </div>
   )
 }

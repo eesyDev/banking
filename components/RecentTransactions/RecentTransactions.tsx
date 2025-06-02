@@ -7,7 +7,7 @@ import TransactionsTable from '../TransactionsTable/TransactionsTable';
 import { useState, Suspense, useEffect } from 'react'
 import TransactionsTableSkeleton from '../TransactionsTable/TransactionsTableSkeleton';
 import { usePathname, useSearchParams } from 'next/navigation';
-// import { Pagination } from './Pagination'
+import { Pagination } from '../Pagination'
 
 const RecentTransactions = ({
   accounts,
@@ -83,7 +83,7 @@ const RecentTransactions = ({
 
             {totalPages > 1 && (
               <div className="my-4 w-full">
-                {/* <Pagination totalPages={totalPages} page={page} /> */}
+                <Pagination totalPages={totalPages} page={page} setIsLoading={setIsLoading} />
               </div>
             )}
           </TabsContent>

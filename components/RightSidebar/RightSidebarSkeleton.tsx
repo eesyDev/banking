@@ -5,44 +5,72 @@ import BankCardSkeleton from '../BankCard/BankCardSkeleton'
 const RightSidebarSkeleton = () => {
   return (
     <aside className='right-sidebar'>
-        <section className='flex flex-col pb-8'>
-            <div className="profile-banner" />
-            <div className="profile">
-                <Skeleton
-                  containerClassName='profile-img'
-                />
-                <div className="profile-details">
-                    <Skeleton
-                      width={200}
-                      height={30}
-                    />
-                    <Skeleton
-                      width={190}
-                      height={15}
-                    />
-                </div>
-            </div>
-        </section>
-        <section className="banks">
-            <div className="flex w-full justify-between">
-                <Skeleton
-                  width={80}
-                  height={20}
-                />
-                <Skeleton
-                  width={80}
-                  height={10}
-                />
-            </div>
-                <div className='relative flex flex-1 flex-col items-center justify-center gap-5'>
-                    <div className="relative z-10">
-                        <BankCardSkeleton showBalance={false}/>
+      <section className='flex flex-col pb-8'>
+        <div className="profile-banner" />
+        <div className="profile">
+          <Skeleton
+            containerClassName='profile-img'
+          />
+          <div className="profile-details">
+            <Skeleton
+              width={200}
+              height={30}
+            />
+            <Skeleton
+              width={190}
+              height={15}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="banks">
+        <div className="flex w-full justify-between">
+          <Skeleton
+            width={80}
+            height={20}
+          />
+          <Skeleton
+            width={80}
+            height={10}
+          />
+        </div>
+        <div className='relative flex flex-1 flex-col items-center justify-center gap-5'>
+          <div className="relative z-10">
+            <BankCardSkeleton showBalance={false} />
+          </div>
+          <div className="absolute right-0 top-8 z-0 w-[90%]">
+            <BankCardSkeleton showBalance={false} />
+          </div>
+        </div>
+        <div className="mt-10 flex flex-1 flex-col gap-6">
+          <Skeleton
+            width={120}
+            height={25}
+          />
+
+          <div className='space-y-5'>
+            {
+              [...Array(3)].map(i => (
+                <div className="gap-[18px] flex p-4 rounded-xl">
+                  <Skeleton
+                    width={20}
+                    height={20}
+                    circle
+                  />
+                  <div className="flex w-full flex-1 flex-col gap-2">
+                    <div className="text-14 flex justify-between">
+                      <Skeleton width={70} height={15} />
+                      <Skeleton width={40} height={15} />
                     </div>
-                    <div className="absolute right-0 top-8 z-0 w-[90%]">
-                        <BankCardSkeleton showBalance={false}/>
-                    </div>
+                    <Skeleton width={200} height={15} />
+                  </div>
                 </div>
-        </section>
+              ))
+            }
+
+          </div>
+        </div>
+      </section>
     </aside>
   )
 }

@@ -171,6 +171,7 @@ declare interface PageHeaderProps {
 declare interface PaginationProps {
   page: number;
   totalPages: number;
+  setIsLoading?: (loading: boolean) => void;
 }
 
 declare interface PlaidLinkProps {
